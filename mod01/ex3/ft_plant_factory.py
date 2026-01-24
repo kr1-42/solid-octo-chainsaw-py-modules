@@ -3,15 +3,15 @@ class Plant:
         self.plant = plant
         self.height_cm = height_cm
         self.age_days = age_days
-    
+
     def grow(self, cm: int) -> None:
         """Increase plant height by specified centimeters."""
         self.height_cm += cm
-    
+
     def age(self, days: int) -> None:
         """Increase plant age by specified days."""
         self.age_days += days
-    
+
     def get_info(self) -> str:
         """Return formatted information about the plant's current status."""
         return f"{self.plant}: {self.height_cm}cm, {self.age_days} days old"
@@ -31,6 +31,7 @@ def main() -> int:
 
     print(f"Total plants created: {len(plants)}")
     return 0
+
 
 if __name__ == "__main__":
     main()

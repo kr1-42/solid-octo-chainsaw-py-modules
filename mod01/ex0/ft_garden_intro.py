@@ -6,5 +6,6 @@ def main() -> int:
     print("=== End of Program ===")
     return 0
 
+
 if __name__ == "__main__":
     main()
