@@ -4,9 +4,3 @@ def ft_plant_age():
         print("Plant is ready to harvest!")
     else:
         print("Plant needs more time to grow.")
-
-def main() -> int:
-    ft_plant_age()
-
-if __name__ == "__main__":
-    main()

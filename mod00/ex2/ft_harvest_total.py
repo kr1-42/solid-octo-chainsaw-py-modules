@@ -6,9 +6,3 @@ def ft_harvest_total():
         tot_len += len
         x += 1
     print("total harvest: ", tot_len)
-
-def main() -> int:
-    ft_harvest_total()
-
-if __name__ == "__main__":
-    main()
