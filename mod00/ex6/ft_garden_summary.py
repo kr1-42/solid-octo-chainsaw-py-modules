@@ -4,9 +4,3 @@ def ft_garden_summary():
     print(f"Garden: {name}")
     print(f"Plants: {x}")
     print("Status: Growing well!")
-
-def main() -> int:
-    ft_garden_summary()
-
-if __name__ == "__main__":
-    main()

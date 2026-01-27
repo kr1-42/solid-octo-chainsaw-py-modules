@@ -5,9 +5,9 @@ class Plant:
         self.name = name
         self.height = height
 
-    def grow(self):
-        self.height += 1
-        print(self.name, "grew 1cm")
+    def grow(self, cm=1):
+        self.height += cm
+        print(self.name, "grew",cm,"cm")
 
 
 class FloweringPlant(Plant):
@@ -71,8 +71,32 @@ class GardenManager:
         return h > 0
 
     @classmethod
+    def total_growth(self, plants):
+        return len(plants)
+
+    def __init__(self):
+        self.gardens = []
+        self.stats = GardenManager.GardenStats()
+
+    def add_garden(self, garden):
+        self.gardens.append(garden)
+        GardenManager.total_gardens += 1
+
+    @staticmethod
+    def validate_height(h):
+        return h > 0
+
+    @classmethod
     def create_garden_network(cls):
         return cls.total_gardens
+
+
+# === DEMO ===
+print("=== Garden Management System Demo ===")
+
+manager = GardenManager()
+def create_garden_network(cls):
+    return cls.total_gardens
 
 
 # === DEMO ===
