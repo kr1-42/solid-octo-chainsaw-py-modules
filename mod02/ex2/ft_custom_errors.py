@@ -2,9 +2,11 @@ class GardenError(Exception):
     """Base class for all garden-related errors."""
     pass
 
+
 class PlantError(GardenError):
     """Raised when there is an issue with planting."""
     pass
+
 
 class WaterError(GardenError):
     """Raised when there is an issue with watering."""
@@ -15,8 +17,14 @@ def test_all():
     print("=== Testing All Garden Errors with One Except Block ===\n")
 
     errors_to_test = [
-        ("GardenError", lambda: (_ for _ in ()).throw(GardenError("Issue with planting!"))),
-        ("GardenError", lambda: (_ for _ in ()).throw(GardenError("Issue with watering!")))
+        (
+            "GardenError",
+            lambda: (_ for _ in ()).throw(GardenError("Issue with planting!"))
+        ),
+        (
+            "GardenError",
+            lambda: (_ for _ in ()).throw(GardenError("Issue with watering!"))
+        )
     ]
 
     for error_name, error_func in errors_to_test:
@@ -40,6 +48,7 @@ def plant_test():
     except WaterError as e:
         print(e)
     test_all()
+
 
 if __name__ == "__main__":
     plant_test()
