@@ -65,7 +65,7 @@ class GardenManager:
 
 def test_garden_management():
     """Test the garden management system with all error handling."""
-    print("=== Garden Management System ===")
+    print("=== Garden Management System ===\n")
 
     manager = GardenManager()
 
@@ -88,13 +88,13 @@ def test_garden_management():
     except PlantError as e:
         print(f"Error adding plant: {e}")
 
-    print("Watering plants...")
+    print("\nWatering plants...")
     try:
         manager.water_plants()
     except GardenError as e:
         print(f"Error watering: {e}")
 
-    print("Checking plant health...")
+    print("\nChecking plant health...")
     try:
         result = manager.check_plant_health("tomato")
         print(result)
@@ -108,13 +108,13 @@ def test_garden_management():
     except GardenError as e:
         print(f"Error checking lettuce: {e}")
 
-    print("Testing error recovery...")
+    print("\nTesting error recovery...")
     try:
         raise WaterError("Not enough water in tank")
     except GardenError as e:
         print(f"Caught GardenError: {e}")
 
-    print("System recovered and continuing...")
+    print("\nSystem recovered and continuing...")
     print("Garden management system test complete!")
 
 
