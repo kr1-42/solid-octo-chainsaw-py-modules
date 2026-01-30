@@ -18,11 +18,11 @@ def test_all():
 
     errors_to_test = [
         (
-            "GardenError",
+            "PlantError",
             lambda: (_ for _ in ()).throw(GardenError("Issue with planting!"))
         ),
         (
-            "GardenError",
+            "WaterError",
             lambda: (_ for _ in ()).throw(GardenError("Issue with watering!"))
         )
     ]
@@ -39,14 +39,14 @@ def plant_test():
     print("=== Custom Garden Errors Demo ===\n")
     print("Testing PlantError...")
     try:
-        raise PlantError("The tomato plant is wilting!\n")
+        raise PlantError("The tomato plant is wilting!")
     except PlantError as e:
-        print(e)
+        print(f"Caught {type(e).__name__}: {e}\n")
     print("Testing WaterError...")
     try:
-        raise WaterError("Not enough water in the tank!\n")
+        raise WaterError("Not enough water in the tank!")
     except WaterError as e:
-        print(e)
+        print(f"Caught {type(e).__name__}: {e}\n")
     test_all()
 
 

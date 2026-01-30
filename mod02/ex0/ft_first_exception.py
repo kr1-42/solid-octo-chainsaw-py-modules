@@ -15,19 +15,19 @@ def is_valid_int(s):
         return False
 
 
-def check_temperature():
+def check_temperature(temp_str: str = None):
     print("=== Garden Temperature Checker ===")
-    for _ in range(4):
-        print()
-        temp_str = input("testing temperature: ")
-        if is_valid_int(temp_str):
-            temp = int(temp_str)
-        else:
-            print(f"Error: {temp_str} is not a valid number")
-            continue
-        test_temperature_input(temp)
+    print()
+    if is_valid_int(temp_str):
+        temp = int(temp_str)
+    else:
+        print(f"Error: {temp_str} is not a valid number")
+        return
+    test_temperature_input(temp)
     print("\nAll temperature tests completed.")
 
 
 if __name__ == "__main__":
-    check_temperature()
+    for _ in range(3):
+        st = input("testing temperature: ")
+        check_temperature(st)
