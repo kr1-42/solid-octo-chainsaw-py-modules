@@ -1,0 +1,22 @@
+=== Garden Management System Demo ===
+
+Added Oak Tree to Alice's garden
+Added Rose to Alice's garden
+Added Sunflower to Alice's garden
+
+Alice is helping all plants grow...
+Oak Tree grew 1 cm
+Rose grew 1 cm
+Sunflower grew 1 cm
+
+=== Alice's Garden Report ===
+- Oak Tree: 101cm
+- Rose: 26cm, red flowers (blooming)
+- Sunflower: 51cm, yellow flowers (blooming), Prize points: 10
+
+Plants added: 3 Total growth: 3 cm
+Plant types: 1 regular, 1 flowering, 1 prize flowers
+
+Height validation test: True
+Garden scores - alice: 218,bob : 92
+Total gardens managed: 2
