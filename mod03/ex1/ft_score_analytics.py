@@ -39,12 +39,13 @@ def scores_check() -> int:
     return 0
 
 
-def main():
+def main() -> int:
     handle_print("start")
     if scores_check() != 0:
-        return
+        return 1
     scores = process_scores()
     handle_print("scores", scores)
+    return 0
 
 
 if __name__ == "__main__":

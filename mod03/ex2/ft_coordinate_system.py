@@ -1,4 +1,5 @@
 import math
+from sys import argv
 
 
 def create_spawn_point(x: float, y: float, z: float) -> tuple:
@@ -16,21 +17,6 @@ def calculate_distance(point1: tuple, point2: tuple) -> float:
     return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2)
 
 
-def parse_coordinates(coord_string: str) -> tuple:
-    """
-    Parse coordinate string like teleport commands.
-    Accepts formats: "x,y,z" or "x y z"
-    """
-    coord_string = coord_string.strip()
-    if ',' in coord_string:
-        parts = coord_string.split(',')
-    else:
-        parts = coord_string.split()
-    if len(parts) != 3:
-        raise ValueError("Invalid format. Use 'x,y,z' or 'x y z'")
-    return (float(parts[0]), float(parts[1]), float(parts[2]))
-
-
 def demonstrate_tuple_unpacking(coordinates: tuple) -> None:
     """Show off tuple unpacking magic - like unwrapping presents!"""
     print("Unpacking demonstration:")
@@ -39,34 +25,42 @@ def demonstrate_tuple_unpacking(coordinates: tuple) -> None:
     print(f"Coordinates: X={x}, Y={y}, Z={z}")
 
 
-def main():
+def length(iter: list) -> int:
+    """Return the length of an iterable."""
+    count = 0
+    for _ in iter:
+        count += 1
+    return count
+
+
+def main() -> int:
     """Main function to demonstrate the 3D coordinate system."""
     print("=== Game Coordinate System ===")
-
-    pos1 = create_spawn_point(10, 20, 5)
+    if length(argv) == 2:
+        try:
+            x = tuple(float(arg) for arg in argv[1].split(','))
+        except ValueError:
+            print("Error: Invalid command line arguments for coordinates.")
+            return 1
+    elif length(argv) == 4:
+        try:
+            x = (
+                float(argv[1]),
+                float(argv[2]),
+                float(argv[3])
+                )
+        except ValueError:
+            print("Error: Invalid command line arguments for coordinates.")
+            return
+    elif length(argv) == 1:
+        x = (10, 20, 5)
+    pos1 = create_spawn_point(x[0], x[1], x[2])
     print(f"Position created: {pos1}")
-
     origin = (0, 0, 0)
     dist1 = calculate_distance(origin, pos1)
     print(f"Distance between {origin} and {pos1}: {dist1:.2f}")
-
-    print('Parsing coordinates: "3,4,0"')
-    try:
-        pos2 = parse_coordinates("3,4,0")
-        print(f"Parsed position: {pos2}")
-        dist2 = calculate_distance(origin, pos2)
-        print(f"Distance between {origin} and {pos2}: {dist2:.2f}")
-    except ValueError as e:
-        print(f"Error: {e}")
-
-    print('Parsing invalid coordinates: "abc,def,ghi"')
-    try:
-        parse_coordinates("abc,def,ghi")
-    except ValueError as e:
-        print(f"Error parsing coordinates: {e}")
-        print(f"Error details - Type: {type(e).__name__}, Args: {e.args}")
-
-    demonstrate_tuple_unpacking(pos2)
+    demonstrate_tuple_unpacking(pos1)
+    return 0
 
 
 if __name__ == "__main__":
