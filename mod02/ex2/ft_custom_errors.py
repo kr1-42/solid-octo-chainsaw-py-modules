@@ -1,0 +1,54 @@
+class GardenError(Exception):
+    """Base class for all garden-related errors."""
+    pass
+
+
+class PlantError(GardenError):
+    """Raised when there is an issue with planting."""
+    pass
+
+
+class WaterError(GardenError):
+    """Raised when there is an issue with watering."""
+    pass
+
+
+def test_all() -> None:
+    print("=== Testing All Garden Errors with One Except Block ===\n")
+
+    errors_to_test = [
+        (
+            "PlantError",
+            lambda: (_ for _ in ()).throw(GardenError("Issue with planting!"))
+        ),
+        (
+            "WaterError",
+            lambda: (_ for _ in ()).throw(GardenError("Issue with watering!"))
+        )
+    ]
+
+    for error_name, error_func in errors_to_test:
+        try:
+            print(f"Testing {error_name}...")
+            error_func()
+        except GardenError as e:
+            print(f"Caught {type(e).__name__}: {e}\n")
+
+
+def plant_test() -> None:
+    print("=== Custom Garden Errors Demo ===\n")
+    print("Testing PlantError...")
+    try:
+        raise PlantError("The tomato plant is wilting!")
+    except PlantError as e:
+        print(f"Caught {type(e).__name__}: {e}\n")
+    print("Testing WaterError...")
+    try:
+        raise WaterError("Not enough water in the tank!")
+    except WaterError as e:
+        print(f"Caught {type(e).__name__}: {e}\n")
+    test_all()
+
+
+if __name__ == "__main__":
+    plant_test()
