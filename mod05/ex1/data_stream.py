@@ -134,7 +134,7 @@ class StreamProcessor:
 		return results
 
 
-def _safe_print(label: str, action) -> None:
+def _safe_print(label: str, action: function) -> None:
 	try:
 		print(label)
 		action()
