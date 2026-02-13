@@ -192,7 +192,7 @@ if __name__ == "__main__":
 	results = processor.process_all(batches)
 
 	print("Batch 1 Results:")
-	print(f"- Sensor data: 2 readings processed")
+    print(f"- Sensor data: 2 readings processed")
 	print(f"- Transaction data: 4 operations processed")
 	print(f"- Event data: 3 events processed")
 
