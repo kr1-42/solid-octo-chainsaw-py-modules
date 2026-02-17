@@ -26,7 +26,9 @@ class NumericProcessor(DataProcessor):
                 elif type(data) in [list]:
                     for item in data:
                         if type(item) not in [int, float]:
-                            raise ValueError("All items in the list must be numeric")
+                            raise ValueError(
+                                "All items in the list must be numeric"
+                                )
                     sum_data = som(data)
                     avg_data = sum_data / length(data)
                     return self.format_output(
@@ -66,7 +68,9 @@ class TextProcessor(DataProcessor):
                 elif type(data) is list:
                     for item in data:
                         if type(item) is not str:
-                            raise ValueError("All items in the list must be strings")
+                            raise ValueError(
+                                "All items in the list must be strings"
+                                )
                     tot_strings = length(data)
                     total_chars = 0
                     total_words = 0
@@ -85,6 +89,7 @@ class TextProcessor(DataProcessor):
                         )
             except Exception as e:
                 raise e
+
     @staticmethod
     def validate(data: Any) -> bool:
         if type(data) in [str, list]:
