@@ -1,12 +1,20 @@
 from abc import ABC, abstractmethod
 
+
 class Magical(ABC):
+    """Abstract interface for magical abilities."""
+
     @abstractmethod
     def cast_spell(self, spell_name: str, targets: list) -> dict:
+        """Cast a spell on targets."""
         pass
 
+    @abstractmethod
     def channel_mana(self, amount: int) -> dict:
-        return {"message": f"Channeling {amount} mana."}
+        """Channel mana for spellcasting."""
+        pass
 
+    @abstractmethod
     def get_magic_stats(self) -> dict:
-        return {"type": self.__class__.__name__}
+        """Get magical statistics."""
+        pass
