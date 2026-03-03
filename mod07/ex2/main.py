@@ -20,7 +20,10 @@ def main():
     }
 
     for group_name, abilities in ability_groups.items():
-        card_methods = {method for method in dir(elite) if not method.startswith("_")}
+        card_methods = {
+            method for method in dir(elite)
+            if not method.startswith("_")
+        }
         filtered = sorted(card_methods & abilities)
         print(f"- {group_name}: {filtered}")
 

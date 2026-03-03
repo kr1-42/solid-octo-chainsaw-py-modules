@@ -45,8 +45,9 @@ class Deck:
         creatures = sum(isinstance(card, CreatureCard) for card in self._cards)
         spells = sum(isinstance(card, SpellCard) for card in self._cards)
         artifacts = sum(isinstance(card, ArtifactCard) for card in self._cards)
+        total_cost = sum(card.cost for card in self._cards)
         avg_cost = (
-            float(math.ceil(sum(card.cost for card in self._cards) / total_cards))
+            float(math.ceil(total_cost / total_cards))
             if total_cards
             else 0.0
         )

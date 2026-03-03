@@ -2,7 +2,8 @@ from .Card import Card
 
 
 class CreatureCard(Card):
-    def __init__(self, name: str, cost: int, rarity: str, attack: int, health: int):
+    def __init__(
+            self, name: str, cost: int, rarity: str, attack: int, health: int):
         super().__init__(name, cost, rarity)
         self.attack = self.validate(attack)
         self.health = self.validate(health)
