@@ -1,5 +1,7 @@
-import os, sys
+import os
 from dotenv import load_dotenv
+
+
 def oracle():
     try:
         load_dotenv()
@@ -16,7 +18,8 @@ def oracle():
     for var in values:
         value = os.getenv(var)
         if value is None:
-            raise ValueError(f"Warning: {var} is not set in the environment variables.")
+            raise ValueError(
+                f"Warning: {var} is not set in the environment variables.")
         else:
             print(f"{var} is set to: {value}")
 
@@ -36,6 +39,7 @@ def main():
     print("[OK] No hardcoded secrets detected")
     print("[OK] .env file properly configured")
     print("[OK] Production overrides available")
+
 
 if __name__ == "__main__":
     main()
